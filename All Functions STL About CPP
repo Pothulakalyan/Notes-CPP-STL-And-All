@@ -1,0 +1,205 @@
+Vectors in cpp:
+-----------------------
+lower_bound and upper_bound
+vector<int>variable name
+push_back()
+pop_back()-->it delete the last element
+vector.insert(begin()+1,100)-->inserting
+reverse(vector.begin(),vector().end())-->
+
+emplace_back()
+sort(a,a+n)
+
+sorting subarray:sort(a+2,a+5);
+
+decreasing sorted order:
+sort(a,a+n,greater<int>());
+
+
+vector.begin()-->address of the first element
+vector.end()--->last element next address
+vector.rbegin()-->here the last element is the first element
+vector.rend()--->here 
+for(auto it:A)
+{
+	cout<<it<<" ";
+}
+...     ```````````````............................
+2D vextors:
+----------------------------
+vector<vector<int>>grid;
+grid.push_back({10,20,30});
+grid.push_back(1,2,3);
+grid.push_back(5,6,7);
+[
+[10,20,30],
+[1,2,3],
+[5,6,7]
+]
+out<<gird[0][0];
+for(int i=0;i<grid.size();i++)
+{
+	for(int j=0;j<gird[i].size();j++)
+	{
+		cout<<grid[i][j]<<" ";
+	}	
+	cout<<"\n";
+}
+if(find(vector.begin(),vector.end(),target)!=vector.end())
+==========
+single soource shotest path
+-->BFS 1)Un_Weighted
+-->Dijkstra's 1)weighted
+-->BelmanFord 1)Negative weighted graphs
+===============	===================================================
+stack<int>st;
+queue<int>qu;
+==============================
+Pair: pair is a container is stores a data in pair
+syntax:pair<int,int>p1={1,2};
+Accesing:p1.first-->1
+	 p1.second-->2
+pair of pairs Syntx pair<int,pair<char,int>>p2
+Ex:pair<1,pair<'a',97>>p2
+Accesing:p1.first --> 1
+         p2.seoncd-->it gives <'a',97>
+	 now i want a then p2.second.first -->'a'
+	 p2.second.second -->97
+Vectors:
+   Decalaring:
+	vector<int>ve;
+        vector<int>ve(5)-->it means 5 values initilized with garbage values
+        vector<int>ve(5,0)-->it means 5 valyes initilazed with zero values
+        vector<pair<int,int>>ve
+Ex:
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    vector<pair<int,int>>ve;
+    for(int i=0;i<n;i++){
+        int k,l;
+        cin>>k>>l;
+        ve.push_back({k,l});
+    }
+    for(int i=0;i<ve.size();i++){
+        cout<<ve[i].first<<" "<<ve[i].second<<endl;
+    }
+}
+Inserting Elements in vector:
+	ve.insert(ve.begin(),5);
+        it means at beginig we can insert the value 5
+   Multiple values inserting:
+        ve.insert(ve.begin()+2,5,6,7,8)
+	vector<int>ve={1,2,3,4};
+        vector<int>v1={10,20,30};
+        ve.insert(ve.begin(),v1.begin(),v1.end());
+        for(auto it:ve){
+          cout<<it<<" ";
+        }
+	
+Deleting Elements from Vector:
+	v.erase(ve.begin(),ve.begin()+1);
+=============================================================
+DeQeue:it is a container it performs to operations 
+push_back()-->it add the element at last
+push_front()-->it add the element at first
+pop_back()-->it deletes the element at last
+pop_front()-->it deletes the element at first
+Decaring:deque<int>de;
+===============================================
+Stack:Stack is container 
+Syntax:stack<int>st;
+operations:push(),pop(),empty(),top();
+=========================================
+Queue:is a datastructure
+Syntax:queue<int>q;
+opearations:front(),back(),empty(),
+============================================
+priority_queue<int>pq  [max Heap]
+
+it gives the priority to like [vvp's]  very very important persons to give the first priority and then others like -->[vp's]
+pq.push(1);
+pq.push(2);
+pq.push(100);
+it gives the highest priority to 100 top lo 100 untundhi 
+q.pop()-->it remove the highest priority element  
+Operations:push(),pop(),top(),size(),swap(),empty();
+=============================================================================
+priority_queue<int,vector<int>,greater<int>>min_pq;  [Min Heap]
+ 
+if i want to min element is the top then the syntax of the priority queue is
+it is aslo called 
+Operations:push(),pop(),top(),size(),swap(),empty();
+================================================================================
+Set:set contains mainly two properties
+1)sorted 2)unnique [no duplicates]
+syntax:set<int>st;
+Operations:insert(),erase(),find(),count()
+s.count(2) how many times of 2 appear
+if u want to delete the ranges of values then it is also possible
+s=[2,3,4,5,6]
+auto it1=s.find(3); return memory address if u want get it then [*it] gives the value
+auto it2=s.find(6); return memory address if u want get it then [*it] gives the value
+i want to delete the 3 to values in a above the set
+s.erase(it1,it2); after erase the set 
+output:[2,6]
+================================================================================
+MultiSet:
+synatax:multiset<int>mset;
+-->it contains duplicates also
+-->it is a sorted order
+mset.insert(1);
+mset.insert(2);
+mset.insert(1);
+mset.insert(2);
+mset.insert(2);
+output:[1,1,2,2,2]
+if u want perform erase function
+mset.erase(2) //how many two's in a set all the 2's deleted 
+if i want only one 2 deleted then use the syntax
+mset.erase(mset.find(2))//it only deletes the iterator mapping that element only deleted
+output:[1,1,2,2]
+====================================================================================
+map:map is a key value pairs
+Declaring:
+map<int,int>mp;
+map<int,pair<int,int>>mp
+map<pair<int,int>,char s>mp;
+map<char,string>mp
+key  value
+ 1-->2
+ 3-->4
+ 4-->5
+ 6-->4
+auto it=mp.find(4);
+cout<<it.second -->5
+=============================================================================
+Custom sorting:
+if i want to sort the vector pair then
+vector<pair<int,int>>vp={{1,2},{3,2},{4,5},{1,5}};
+sort(a,a+n,comparator);
+comparator it returns true/false as per our condition
+bool comparator(pair<int,int>p1,pair<int,int>p2>):
+	if(p1.first<p2.first) return true
+	if(p1.first>p2.first) return false;
+	if(p2.second>p2.second) return true;
+	return false;
+output:[{1,5},{1,2},{3,2},{4,5}]
+if any pair of first two values are eqaul then it sorted in descending order
+==========================================================================
+ex:a=7
+__builtin_popcount(a) it return how many 1's in a number
+output:three 1's
+-->if it is a long number then 
+long long int k=98765432154
+cout<<__builtin_popcountll(k);
+
+string s="abc"
+if i want to how many permutations for this string abc then the inbuilt function is
+next_permutation(str.begin(),str.end());
+
+Finding_Max_element in a vector or array
+int k=max_element(a,a+n); it returns the iterator
+cout<<*k
